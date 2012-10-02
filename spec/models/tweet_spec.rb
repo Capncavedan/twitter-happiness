@@ -18,5 +18,14 @@ describe Tweet do
     it "should return 50, all other things being equal" do
       Tweet.new.score_content_happiness.should eq(50)
     end
+
+    it "should subtract 1 for a negative word" do
+      Tweet.new(content: "Unhappy").score_content_happiness.should eq(50-1)
+    end
+
+    it "should subtract 1 for each negative word" do
+      Tweet.new(content: "Unhappy that I am sad and brokenhearted.  Bummer.").score_content_happiness.should eq(50-4)
+    end
+
   end
 end
