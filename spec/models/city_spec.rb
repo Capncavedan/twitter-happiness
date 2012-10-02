@@ -15,4 +15,8 @@ describe City do
     city = City.new
     city.happiness_score.should be_a(Integer)
   end
+
+  it "should have associated tweets" do
+    City.new.tweets.should eq([])
+  end
 end
