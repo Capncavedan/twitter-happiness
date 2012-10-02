@@ -15,5 +15,8 @@ describe Tweet do
   end
 
   describe "#score_content_happiness" do
+    it "should return 50, all other things being equal" do
+      Tweet.new.score_content_happiness.should eq(50)
+    end
   end
 end

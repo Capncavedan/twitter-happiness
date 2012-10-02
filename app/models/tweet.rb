@@ -10,6 +10,8 @@ class Tweet < ActiveRecord::Base
   end
 
   def score_content_happiness
+    # TODO: some hardcore linguistic analysis
     50
   end
+
 end
