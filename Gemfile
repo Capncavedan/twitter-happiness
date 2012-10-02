@@ -30,7 +30,7 @@ group :development do
   gem 'guard-rspec'
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'growl', '~> 1.0.3'
-  gem 'rakegrowl', '~> 0.3.1'
+  #gem 'rakegrowl', '~> 0.3.1'
 end
 
 gem 'factory_girl_rails'
