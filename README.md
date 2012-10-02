@@ -1,4 +1,7 @@
-twitter-happiness
+Twitter-Happiness
 =================
 
-Compare relative happiness of locations
+Compare relative happiness of two cities
+
+
+https://www.pivotaltracker.com/projects/655463/
