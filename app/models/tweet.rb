@@ -1,6 +1,7 @@
 class Tweet < ActiveRecord::Base
 
   NEGATIVES = %w(unhappy sad bummer brokenhearted)
+  POSITIVES = %w(awesome great beautiful stoked)
 
   attr_accessible :content, :happiness
 
@@ -14,7 +15,7 @@ class Tweet < ActiveRecord::Base
 
   def score_content_happiness
     # TODO: some hardcore linguistic analysis
-    50 - negatives
+    50 - negatives + positives
   end
 
   private
@@ -24,7 +25,15 @@ class Tweet < ActiveRecord::Base
     content.to_s.downcase.split(/\b/).each do |word|
       ret += 1 if NEGATIVES.include?(word)
     end
-    ret
+    ret > 50 ? 50 : ret
+  end
+
+  def positives
+    ret = 0
+    content.to_s.downcase.split(/\b/).each do |word|
+      ret += 1 if POSITIVES.include?(word)
+    end
+    ret > 50 ? 50 : ret
   end
 
 end
