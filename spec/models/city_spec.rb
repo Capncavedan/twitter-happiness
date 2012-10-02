@@ -16,10 +16,24 @@ describe City do
   end
 
   describe "happiness score" do
-    it "should average score of associated tweets" do
+    it "should score of an associated tweets" do
       city = FactoryGirl.create(:city)
       tweet = FactoryGirl.create(:tweet, city: city)
       city.happiness.should eq(50)
+    end
+
+    it "should average the score of multiple associated unhappy tweets" do
+      city = FactoryGirl.create(:city)
+      FactoryGirl.create(:unhappy_tweet, city: city)
+      FactoryGirl.create(:very_unhappy_tweet, city: city)
+      city.happiness.should eq(20)
+    end
+
+    it "should average the score of multiple associated happy tweets" do
+      city = FactoryGirl.create(:city)
+      FactoryGirl.create(:happy_tweet, city: city)
+      FactoryGirl.create(:perfectly_happy_tweet, city: city)
+      city.happiness.should eq(85)
     end
   end
 end

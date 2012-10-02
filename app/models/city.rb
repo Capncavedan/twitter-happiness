@@ -4,6 +4,6 @@ class City < ActiveRecord::Base
   has_many :tweets
 
   def happiness
-    tweets.average(:happiness)
+    tweets.average(:happiness).to_i
   end
 end
