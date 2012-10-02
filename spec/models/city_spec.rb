@@ -37,4 +37,17 @@ describe City do
     end
   end
 
+  describe "relative happiness" do
+    it "should allow sorting cities" do
+      unhappy_city  = FactoryGirl.create(:unhappy_city)
+      unhappy_city.tweets << FactoryGirl.create(:unhappy_tweet)
+      average_city  = FactoryGirl.create(:average_city)
+      average_city.tweets << FactoryGirl.create(:tweet)
+      electric_city = FactoryGirl.create(:electric_city)
+      electric_city.tweets << FactoryGirl.create(:perfectly_happy_tweet)
+
+      City.by_happiness.should eq( [electric_city, average_city, unhappy_city] )
+    end
+  end
+
 end

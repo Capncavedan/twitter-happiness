@@ -6,4 +6,9 @@ class City < ActiveRecord::Base
   def happiness
     tweets.average(:happiness).to_i
   end
+
+  def self.by_happiness
+    joins(:tweets).order("tweets.happiness DESC")
+  end
+
 end
