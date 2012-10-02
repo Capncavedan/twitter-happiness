@@ -11,12 +11,15 @@ describe City do
     city.name.should eq("Indianapolis")
   end
 
-  it "should know its happiness score" do
-    city = City.new
-    city.happiness_score.should be_a(Integer)
-  end
-
   it "should have associated tweets" do
     City.new.tweets.should eq([])
+  end
+
+  describe "happiness score" do
+    it "should average score of associated tweets" do
+      city = FactoryGirl.create(:city)
+      tweet = FactoryGirl.create(:tweet, city: city)
+      city.happiness.should eq(50)
+    end
   end
 end

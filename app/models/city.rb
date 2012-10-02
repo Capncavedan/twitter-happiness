@@ -3,7 +3,7 @@ class City < ActiveRecord::Base
 
   has_many :tweets
 
-  def happiness_score
-    50
+  def happiness
+    tweets.empty? ? nil : tweets.average(:happiness)
   end
 end
