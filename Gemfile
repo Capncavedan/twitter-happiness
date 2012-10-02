@@ -33,7 +33,7 @@ group :development do
   gem 'rakegrowl', '~> 0.3.1'
 end
 
-gem 'factory_girl'
+gem 'factory_girl_rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
