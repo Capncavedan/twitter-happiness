@@ -26,6 +26,13 @@ group :test, :development do
   gem "rspec-rails", "~> 2.0"
 end
 
+group :development do
+  gem 'guard-rspec'
+  gem 'rb-fsevent', '~> 0.9.1'
+  gem 'growl', '~> 1.0.3'
+  gem 'rakegrowl', '~> 0.3.1'
+end
+
 gem 'factory_girl'
 
 # To use ActiveModel has_secure_password
