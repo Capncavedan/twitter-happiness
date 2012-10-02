@@ -1,0 +1,7 @@
+<h1>Cities By Happiness</h1>
+
+<ul>
+  <% @cities.each do |city| -%>
+    <li><%= city.name %> (score: <%= city.happiness %>)</li>
+  <% end -%>
+</ul>
