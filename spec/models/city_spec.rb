@@ -36,4 +36,5 @@ describe City do
       city.happiness.should eq(85)
     end
   end
+
 end

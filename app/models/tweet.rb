@@ -1,5 +1,15 @@
 class Tweet < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :content, :happiness
 
   belongs_to :city
+
+  before_create :set_happiness
+
+  def set_happiness
+    self.happiness ||= score_content_happiness
+  end
+
+  def score_content_happiness
+    50
+  end
 end
